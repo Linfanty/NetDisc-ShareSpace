@@ -38,13 +38,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     Class.forName(driver);  
     
     Connection conn = DriverManager.getConnection(url, use, password);  
-    PreparedStatement sql = conn.prepareStatement("insert into user(usename, usepwd) values(?,?) ");
-    // PreparedStatement sql = conn.prepareStatement("select * from user values(?, ?, ?, ?)");
-    sql.setString(1, users); //把输入的用户名username 赋值给数据库的第一项
-    sql.setString(2, pass);  //把输入的密码pwd 赋值给数据库的第二项
+    // PreparedStatement sql = conn.prepareStatement("insert into user(usename, usepwd) values(?,?) ");
+    PreparedStatement sql = conn.prepareStatement("insert into user values(?, ?, ?, ?)");
     
-    // String tiaoshu = null;
-    // sql.setString(1, tiaoshu);
+/////new
+  	// 统计id数 || user中的数据条数
+  	
+  	PreparedStatement sql_cnt = conn.prepareStatement("select * from user");
+    ResultSet cnt = sql_cnt.executeQuery();  
+    cnt.last(); //移到最后一行
+    
+    // System.out.println("Total Size = " + cnt.getRow());  //得到当前行号，也就是记录数   
+	// String Cnt = "" + cnt.getRow();
+	sql.setInt(1, cnt.getRow() + 1);
+	sql.setString(4, "男");
+////new
+
+    sql.setString(2, users); //把输入的用户名username 赋值给数据库的第一项
+    sql.setString(3, pass);  //把输入的密码pwd 赋值给数据库的第二项
+    
+
     
     PreparedStatement sql2 = conn.prepareStatement("select * from user where usename = '"+users+"' ");
     rs = sql2.executeQuery();
@@ -56,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- 判断是否是正确的登录用户 -->
 <% 
 	if (flag == false){  // 创建用户
-		int rtn = sql.executeUpdate(); 
+		sql.executeUpdate(); 
 		sql.close();
 		conn.close();
 	%>
