@@ -22,5 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
    <center> 注册成功. </center> <br>
+   <% response.setHeader("refresh","2; url = index.jsp");%>
   </body>
 </html>

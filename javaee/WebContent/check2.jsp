@@ -74,8 +74,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		conn.close();
 	%>
 	<jsp:forward page = "register_success.jsp" /> <!--注册成功 -->
-	<%	} else if (flag == true ){ %>
-	<jsp:forward page = "register_fail.jsp"/> <!--登录失败 -->
+	<%	} else if (flag == true ){ 
+	
+	%>
+	<jsp:forward page = "register_fail.jsp"/> <!--注册失败 -->
 	<% } %>
 
 

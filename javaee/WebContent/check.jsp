@@ -20,8 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 <%
    request.setCharacterEncoding("utf-8");
-   String users=request.getParameter("username");
-   String pass=request.getParameter("pwd");
+   String users = request.getParameter("username");
+   String pass = request.getParameter("pwd");
    boolean flag = false;
    PreparedStatement sql = null;  
    ResultSet rs = null;
@@ -49,8 +49,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   %>
   
 <!-- 判断是否是正确的登录用户 -->
-<% if (flag==true){ %>
+<% if (flag == true){ %>
+<% session.setAttribute("userid", users);  // 登录成功的用户名保存在 session 中 %>
 <jsp:forward page="login_success.jsp"/> <!--登录成功 -->
+
+
 <%} 
 else
 if (flag==false){

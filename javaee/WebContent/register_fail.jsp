@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <% out.println("<center>注册失败 已注册 2秒后自动跳转至注册页面</center>");%> 
+  <% out.println("<center>注册失败或已注册  2秒后自动跳转至注册页面</center>");%> 
   <% response.setHeader("refresh","2;url = register.jsp");%>
   </body>
 </html>
