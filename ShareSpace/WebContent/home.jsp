@@ -41,7 +41,7 @@ for(FileBean file : fileList){
 <td><%=file.getFileId() %></td>
 <td><%=file.getFileName() %></td>
 <td><%=file.getFilePath() %></td>
-<% out.println("<td><a href = \"/ShareSpace/DownloadServlet?fileId=" + file.getFileId() + "\"> 下载 </a></td>"); %>
+<% out.println("<td><a href = \"/ShareSpace/DownloadServlet?fileId=" + file.getFileId() + "\"> 下载 </a></td>");%>
 </tr>
 <%
 }

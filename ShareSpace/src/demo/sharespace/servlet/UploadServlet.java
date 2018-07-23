@@ -1,6 +1,7 @@
 package demo.sharespace.servlet;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -114,23 +115,24 @@ public class UploadServlet extends HttpServlet {
 				for (FileItem item : formItems) {
 					// 处理不在表单中的字段
 					if (!item.isFormField()) {
-						String fileName = new File(item.getName()).getName();
-						String uuid = UUID.randomUUID().toString();
+						String fileName = new File(item.getName()).getName(); // 文件名 == getName名
+						String uuid = UUID.randomUUID().toString(); // 文件夹 随机UID 名
 						String fileDirStr = uploadPath + File.separator + uuid;
 						File fileDir = new File(fileDirStr);
-						if (!fileDir.exists()) {
+						if (!fileDir.exists()) { // 创建文件夹
 							fileDir.mkdir();
 						}
-						
+						//					文件路径  = 上传路径 + \\ 随机文件夹名 + \\ + 文件名
 						String filePath = uploadPath + File.separator + uuid + File.separator + fileName;
-						File storeFile = new File(filePath);
+						File storeFile = new File(filePath); // 存储
 						
 						// 在控制台输出文件的上传路径
 						System.out.println(filePath);
 						// 保存文件到硬盘
 						item.write(storeFile);
-						request.setAttribute("message", "文件上传成功!");
+						request.setAttribute("message", "文件上传成功!");// 把 文件上传成功! 传给 message
 
+						// 在数据库中插入文件信息 to DB
 						insertFileInfo2DB(fileName, filePath, uuid, RequestUtils.getUserId(request));
 					}
 				}
@@ -150,7 +152,7 @@ public class UploadServlet extends HttpServlet {
 			String sql = "insert into file (fileid, filename, filepath) "
 					+ "values ('" + fileId + "','" + filename + "','"
 					+ filepath.replace("\\", "/") + "')";
-			statement.execute(sql);
+			statement.execute(sql); //  \\:File.separator 替换为 /
 
 			sql = "insert into user_file (userid, fileid) values ('" + userId + "','" + fileId + "')";
 			statement.execute(sql);
@@ -165,7 +167,6 @@ public class UploadServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 }
