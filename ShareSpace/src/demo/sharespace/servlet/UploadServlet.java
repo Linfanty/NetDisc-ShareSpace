@@ -2,14 +2,17 @@ package demo.sharespace.servlet;
 
 import java.io.File;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.UUID;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -149,12 +152,21 @@ public class UploadServlet extends HttpServlet {
 		Statement statement = null;
 		try {
 			statement = conn.createStatement();
-			String sql = "insert into file (fileid, filename, filepath) "
-					+ "values ('" + fileId + "','" + filename + "','"
-					+ filepath.replace("\\", "/") + "')";
+	        //生成日期对象
+	        Date current_date = new Date();
+	        //设置日期格式化样式为：yyyy-MM-dd
+	        SimpleDateFormat  SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	        //格式化当前日期
+	        SimpleDateFormat.format(current_date.getTime());
+	        //输出测试一下
+	        System.out.println("当前的系统日期为：" + SimpleDateFormat.format(current_date.getTime()));
+	        
+			///////
+			String sql = "insert into file (fileid, filename, filepath, fileDate) "
+					+ "values ('" + fileId + "'   ,   '" + filename + "'  ,   '"+ filepath.replace("\\", "/") +"'   ,   '"+SimpleDateFormat.format(current_date.getTime())+"' )";
 			statement.execute(sql); //  \\:File.separator 替换为 /
 
-			sql = "insert into user_file (userid, fileid) values ('" + userId + "','" + fileId + "')";
+			sql = "insert into user_file (userid, fileid) values ('" + userId + "','" + fileId + "' )";
 			statement.execute(sql);
 
 			return;

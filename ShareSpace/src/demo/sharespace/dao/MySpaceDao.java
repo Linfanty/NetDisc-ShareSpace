@@ -18,7 +18,7 @@ public class MySpaceDao {
 		try {
 			// 执行 SQL 查询
 			Statement stmt = conn.createStatement();
-			String sql = "select t1.fileid, t1.filename, t1.filepath "
+			String sql = "select * "
 					+ "from file t1 inner join user_file t2 "
 					+ "on t1.fileid = t2.fileid "
 					+ "where t2.userid = '" + userId + "'";
@@ -29,10 +29,13 @@ public class MySpaceDao {
 			while (rs.next()) {
 				 fileBean = new FileBean();
 				 // 通过字段检索
+				 //System.out.println( rs.getDate("filedate") );
 				 fileBean.setFileId(rs.getString("fileid"));
 				 fileBean.setFileName(rs.getString("filename"));
 				 fileBean.setFilePath(rs.getString("filepath"));
-				 
+				 fileBean.setFileDate(rs.getDate("filedate"));
+				 fileBean.setFileDesc(rs.getString("filedesc"));
+				 fileBean.setFileState(rs.getString("filestate"));
 				 fileBeans.add(fileBean); /// fileBeans
 			}
 

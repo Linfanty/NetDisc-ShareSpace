@@ -1,7 +1,6 @@
 package demo.sharespace.servlet;
 
 import java.io.File;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -61,6 +60,7 @@ public class DownloadServlet extends HttpServlet {
 			// 执行 SQL 查询
 			Statement stmt = conn.createStatement();
 			String sql = "select filename, filepath from file where fileid = '" + fileId + "'";
+			Statement statement = null;
 			// 查询相同的文件ID
 			ResultSet rs = stmt.executeQuery(sql);
 			// 展开结果集数据库

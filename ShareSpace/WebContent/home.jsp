@@ -33,15 +33,22 @@ List<FileBean> fileList = mySpaceDao.getMyFileList(RequestUtils.getUserId(reques
 <br/>
 <br/>
 <table border="1">
-<tr><th>文件ID</th><th>文件名</th><th>文件路径</th><th>操作</th></tr>
+<tr><th>文件ID</th><th>文件名</th><th>上传日期</th><th>文件描述</th><th>文件权限</th><th colspan = "4">操作</th></tr>
 <%
 for(FileBean file : fileList){
 %>
 <tr>
 <td><%=file.getFileId() %></td>
 <td><%=file.getFileName() %></td>
-<td><%=file.getFilePath() %></td>
+<%-- <td><%=file.getFilePath() %></td>  --%>
+<td><%=file.getFileDate() %></td>
+<td><%=file.getFileDesc() %></td>
+<td><%=file.getFileState() %></td>
 <% out.println("<td><a href = \"/ShareSpace/DownloadServlet?fileId=" + file.getFileId() + "\"> 下载 </a></td>");%>
+<% out.println("<td><a href = \"/ShareSpace/DeleteServlet?fileId=" + file.getFileId() + "\"> 删除 </a></td>");%>
+<% out.println("<td><a href = \"/ShareSpace/ChangeServlet?fileId=" + file.getFileId() + "\"> 修改权限 </a></td>");%>
+<% out.println("<td><a href = \"ChangeDesc.jsp?fileId=" + file.getFileId() + "\"> 修改描述 </a></td>"); %>
+
 </tr>
 <%
 }
