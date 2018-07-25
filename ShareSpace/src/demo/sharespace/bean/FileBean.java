@@ -16,7 +16,52 @@ public class FileBean implements Serializable {
 	private Date fileDate;
 	private String filedesc;
 	private String filestate;
+	private String userid;
+	private String username;
+	private String groupid;
+	private String groupname;
+	private String groupdesc;
+	
+	public String getGroupName() {
+		return groupname;
+	}
 
+	public void setGroupName(String groupname) {
+		this.groupname = groupname;
+	}
+	
+	public String getGroupDesc() {
+		return groupdesc;
+	}
+
+	public void setGroupDesc(String groupdesc) {
+		this.groupdesc = groupdesc;
+	}
+	
+	public String getGroupId() {
+		return groupid;
+	}
+
+	public void setGroupId(String groupid) {
+		this.groupid = groupid;
+	}
+	
+	public String getUserName() {
+		return username;
+	}
+
+	public void setUserName(String username) {
+		this.username = username;
+	}
+	
+	public String getUserId() {
+		return userid;
+	}
+
+	public void setUserId(String userid) {
+		this.userid = userid;
+	}
+	
 	public String getFileId() { // 取文件ID
 		return fileId;
 	}

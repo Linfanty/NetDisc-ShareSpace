@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
 
 			session.setAttribute("login_flag", "1");  // login_flag 是 1
 			session.setAttribute("username", username); // username 是 username
-			session.setAttribute("userid", userid); // userid 是 useri
+			session.setAttribute("userid", userid); // userid 是 userid
 			response.sendRedirect("/ShareSpace/home.jsp"); // 重定向 页面跳转 绝对路径 地址栏信息改变，可以跳转到任意网页。 
 		} else {
 			session.setAttribute("login_flag", "-1"); // 登录不成功 login_flag 是 -1

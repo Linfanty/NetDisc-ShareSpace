@@ -8,5 +8,18 @@
 </head>
 <body>
 
+
+<center>
+  	<h2> <a href="/ShareSpace/Group.jsp"> 我的群组 </a>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/ShareSpace/search-group.jsp"> 加入群组 </a>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/ShareSpace/creategroup.jsp"> 创建群组 </a>	
+	</h2>
+	<br>
+	  <a href="/ShareSpace/space/MySpace.jsp">返回主页</a>
+</center>
+
+
 </body>
 </html>

@@ -16,6 +16,7 @@
 
 if("1".equals(session.getAttribute("login_flag"))){
 %>
+<h2>
 <a id="ss" href="/ShareSpace/space/ShareSpace.jsp">Share Space</a>
 <a id="ms" href="/ShareSpace/space/MySpace.jsp">My Space</a>
 <a id="gs" href="/ShareSpace/space/GroupSpace.jsp">Group Space</a>
@@ -23,6 +24,7 @@ if("1".equals(session.getAttribute("login_flag"))){
 欢迎,
 <%=session.getAttribute("username") %>
 <a id="logout" href="/ShareSpace/LogoutServlet">登出</a>
+</h2>
 
 
 <%

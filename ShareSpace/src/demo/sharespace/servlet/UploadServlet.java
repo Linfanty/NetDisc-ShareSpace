@@ -136,7 +136,7 @@ public class UploadServlet extends HttpServlet {
 						request.setAttribute("message", "文件上传成功!");// 把 文件上传成功! 传给 message
 
 						// 在数据库中插入文件信息 to DB
-						insertFileInfo2DB(fileName, filePath, uuid, RequestUtils.getUserId(request));
+						insertFileInfo2DB(fileName, filePath, uuid, RequestUtils.getUserId(request), RequestUtils.getUserName(request));
 					}
 				}
 			}
@@ -147,7 +147,7 @@ public class UploadServlet extends HttpServlet {
 		request.getServletContext().getRequestDispatcher("/message.jsp").forward(request, response);
 	}
 
-	private void insertFileInfo2DB(String filename, String filepath, String fileId, String userId) {
+	private void insertFileInfo2DB(String filename, String filepath, String fileId, String userId, String username) {
 		Connection conn = DbUtils.getConnection();
 		Statement statement = null;
 		try {
@@ -166,7 +166,7 @@ public class UploadServlet extends HttpServlet {
 					+ "values ('" + fileId + "'   ,   '" + filename + "'  ,   '"+ filepath.replace("\\", "/") +"'   ,   '"+SimpleDateFormat.format(current_date.getTime())+"' )";
 			statement.execute(sql); //  \\:File.separator 替换为 /
 
-			sql = "insert into user_file (userid, fileid) values ('" + userId + "','" + fileId + "' )";
+			sql = "insert into user_file (userid, fileid, username) values ('" + userId + "','" + fileId + "', '"+username+"' )";
 			statement.execute(sql);
 
 			return;

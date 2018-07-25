@@ -17,7 +17,7 @@
 
 <form action = "/ShareSpace/ChangeDescServlet"  method="post"> 
 <center>
-  	请输入您的修改描述: <br>
+  	<h1>请输入您的修改描述: </h1> <br>
   	<input type="text" name="filedesc">
   	<input type="hidden" name="fileId" value=<%=fileId%> >
 	<input type="submit" value="提交" >

@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Share Space</title>
+<title> Share Space </title>
 </head>
+
+
+
 <body>
+<center>
+  	<h2> <a href="/ShareSpace/search.jsp"> 点击搜索文件 </a>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/ShareSpace/search-user.jsp"> 点击搜索用户 </a>
+	</h2>
+	<br>
+		  <a href="/ShareSpace/space/MySpace.jsp">返回主页</a>
+</center>
 
 </body>
 </html>
