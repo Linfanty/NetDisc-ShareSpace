@@ -4,9 +4,8 @@ import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,20 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import demo.sharespace.bean.FileBean;
 import demo.sharespace.util.DbUtils;
 
 /**
- * Servlet implementation class SearchGroup
+ * Servlet implementation class GroupFile
  */
-@WebServlet("/SearchGroup")
-public class SearchGroup extends HttpServlet {
+@WebServlet("/GroupFile")
+public class GroupFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchGroup() {
+    public GroupFile() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,11 +36,7 @@ public class SearchGroup extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
-		String groupname = request.getParameter("groupname"); // 用来获取页面输入框输入的数据 用户名
-		session.setAttribute("groupname", groupname);  // groupname 是 groupname
-		response.sendRedirect("/ShareSpace/search-group.jsp");
+		doPost(request, response);
 	}
 
 	/**
@@ -50,7 +44,10 @@ public class SearchGroup extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		String groupid = request.getParameter("GroupId");
+		session.setAttribute("groupid", groupid);
+		response.sendRedirect("/ShareSpace/GroupFile.jsp");
 	}
 
 }

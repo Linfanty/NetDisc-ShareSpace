@@ -1,6 +1,7 @@
 package demo.sharespace.bean;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 public class FileBean implements Serializable {

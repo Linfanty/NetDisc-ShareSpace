@@ -15,13 +15,13 @@
 
 <body>
 <center>
-<% String groupId = (String)request.getParameter("GroupId"); // 得到? =后的信息   %>
-<% System.out.println( groupId ); %>
+<% String GroupId = (String)request.getParameter("GroupId"); // 得到? =后的信息   %>
+<% System.out.println( GroupId ); %>
 
 <%
 MyGroupUserDao space = new MyGroupUserDao();
 /// System.out.println(RequestUtils.getGroupId(request) );  /// == null ???
-List<FileBean> UserList = space.getMyFileList(groupId);
+List<FileBean> UserList = space.getMyFileList((String)session.getAttribute("groupid"));
 %>
 
 <form action="/ShareSpace/MyGroupUserList" method="post"></form>
@@ -34,16 +34,17 @@ for(FileBean file : UserList){
 <tr>
 <td><%=file.getUserId() %></td>
 <td><%=file.getUserName() %></td>
-<% out.println("<td><a href = \"/ShareSpace/DeleteUser?GroupId=" + groupId + "\"> 删除该成员  </a></td>");%>
+<% out.println("<td><a href = \"/ShareSpace/DeleteUser?userid=" + file.getUserId() + "\"> 删除该成员  </a></td>");%>
 </tr>
 <%
 }
 %>
 </table>
 <br>
-<% out.println("<a href = \"/ShareSpace/AddUser?GroupId=" + groupId + "\"> 添加新成员  </a>");%>
+<% out.println("<a href = \"/ShareSpace/AddUser.jsp?" + "\"> 添加新成员  </a>");%>
  	<br>
-  <a href="/ShareSpace/space/Group.jsp">返回您加入的群组页</a>
+ 	<br>
+  <a href="/ShareSpace/Group.jsp">返回您加入的群组页</a>
 </center>
 </body>
 </html>

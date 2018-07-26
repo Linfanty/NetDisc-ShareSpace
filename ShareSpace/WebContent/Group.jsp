@@ -22,7 +22,7 @@ List<FileBean> fileList = space.getMyFileList(RequestUtils.getUserId(request));
 <form action="/ShareSpace/MyGroupList" method="post"></form>
 <h2> 您加入的群组 </h2>
 <table border="1">
-<tr><th>群组名</th><th>用户ID</th><th>用户名</th><th colspan = "3" >操作</th></tr>
+<tr><th>群组名</th><th>群主ID</th><th>群主名</th><th colspan = "3" >操作</th></tr>
 <%
 for(FileBean file : fileList){
 %>
@@ -31,8 +31,8 @@ for(FileBean file : fileList){
 <td><%=file.getUserId() %></td>
 <td><%=file.getUserName() %></td>
 <% out.println("<td><a href = \"/ShareSpace/ExitGroup?GroupId=" + file.getGroupId() + "\"> 退出群组  </a></td>");%>
-<% out.println("<td><a href = \"GroupUser.jsp?GroupId=" + file.getGroupId() + "\"> 查看群成员  </a></td>"); %>
-<% out.println("<td><a href = \"/ShareSpace/ExitGroup?GroupId=" + file.getFileId() + "\"> 查看群文件 </a></td>"); %>
+<% out.println("<td><a href = \"/ShareSpace/GroupUser?GroupId=" + file.getGroupId() + "\"> 查看群成员  </a></td>"); %>
+<% out.println("<td><a href = \"/ShareSpace/GroupFile?GroupId=" +  file.getGroupId() + "\"> 查看群文件  </a></td>"); %>
 </tr>
 <%
 }

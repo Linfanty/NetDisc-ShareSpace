@@ -45,6 +45,7 @@ for(FileBean file : fileList){
 }
 %>
 </table>
+<br>
   <a href="/ShareSpace/space/GroupSpace.jsp">返回群组页</a>
 
 </center>

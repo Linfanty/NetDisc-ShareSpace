@@ -62,9 +62,11 @@ public class IntoGroup2 extends HttpServlet {
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				// 通过字段检索
-				groupname = rs.getString("groupname");
-				int gid2 = rs.getInt("groupid");
-				if(i == gid2)  {
+				/// groupname = rs.getString("groupname");
+				/// int gid2 = rs.getInt("groupid");
+				int uid = rs.getInt("userid");
+				System.out.println("i = : " + i + "   j : " +  j + "      uid =  :"  + uid + "    groupname : ="  + groupname);
+				if(j == uid)  {
 					response.sendRedirect("/ShareSpace/GroupIntoFail.jsp");
 					flag = 1;
 				}	
@@ -80,8 +82,6 @@ public class IntoGroup2 extends HttpServlet {
 		if( flag == 0)
 		{
 			System.out.println(i + "  " + j + "   " + username + groupname);
-			
-
 			try {
 				// 执行 SQL 查询
 				Statement stmt = conn.createStatement();
