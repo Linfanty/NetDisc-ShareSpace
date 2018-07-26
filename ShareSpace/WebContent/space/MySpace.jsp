@@ -8,6 +8,6 @@
 <meta http-equiv = "refresh" content = "0.1 url = http://localhost:8080/ShareSpace/home.jsp">
 <title>My Space</title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 </body>
 </html>

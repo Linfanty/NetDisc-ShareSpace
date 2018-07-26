@@ -13,7 +13,7 @@
 <title> 您群组的成员 </title>
 </head>
 
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <center>
 <% String GroupId = (String)request.getParameter("GroupId"); // 得到? =后的信息   %>
 <% System.out.println( GroupId ); %>

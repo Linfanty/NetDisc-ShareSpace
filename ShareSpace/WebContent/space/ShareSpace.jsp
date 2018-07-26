@@ -9,7 +9,7 @@
 
 
 
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <center>
   	<h2> <a href="/ShareSpace/search.jsp"> 点击搜索文件 </a>
   	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

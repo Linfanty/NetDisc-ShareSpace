@@ -6,7 +6,7 @@
 <meta http-equiv = "refresh" content = "2 url = http://localhost:8080/ShareSpace/search-group.jsp">
 <title> GroupIntoFail </title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <center>
 	<h2> 重复添加群组，您已是该群组成员 ！</h2>
 	<br>

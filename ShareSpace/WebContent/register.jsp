@@ -12,7 +12,7 @@
 }
 </style>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <center>
 <h1>注册</h1>
 <form action="/ShareSpace/RegisterServlet" method="post" onsubmit="return checkPasswd(this)">

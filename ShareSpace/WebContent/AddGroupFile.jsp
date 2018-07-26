@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <% String groupid = RequestUtils.getGroupId(request); // 取GroupId的Session   %>
 <% System.out.println( groupid ); %>
 <center>

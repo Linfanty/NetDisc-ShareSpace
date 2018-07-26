@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>文件上传结果</title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
     <center>
         <h2>${message}</h2>
         <a href="/ShareSpace/home.jsp">返回首页</a>

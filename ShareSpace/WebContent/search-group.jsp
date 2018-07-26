@@ -10,7 +10,7 @@
 
 <title>添加群组</title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 <center>
 <form action="/ShareSpace/SearchGroup" method="post">
 <h2> 请输入加入的群组名 </h2>

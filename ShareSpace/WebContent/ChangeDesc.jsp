@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 修改描述</title>
 </head>
-<body>
+<body background="file:///F:/2018JAVA_WEB/ShareSpace/backgroud.png"  width="100%" height="100%" text="white" >
 
 <% String fileId = (String)request.getParameter("fileId"); // 得到request中存储的 fileId 用户对象信息 %>
 <% request.setCharacterEncoding("UTF-8"); %>
